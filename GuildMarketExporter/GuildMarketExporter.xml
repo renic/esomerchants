@@ -1,0 +1,30 @@
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="GME" mouseEnabled="true" movable="true" hidden="true">
+            <Dimensions x="400" y="100" />
+            <Anchor point="CENTER" />
+            
+
+ 
+            <Controls>
+                <Backdrop name="$(parent)BG" inherits="ZO_ThinBackdrop" />
+                <Label name="$(parent)Status" font="ZoFontGameSmall" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="TOP" horizontalAlignment="CENTER" text="Idle">
+                    <AnchorFill />
+                </Label>
+                <Button name="$(parent)CloseButton" font="ZoFontGameSmall" color="CFDCBD" mouseEnabled="true" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Save Data" hidden="true">
+					<Dimensions x="100" y="30" />
+					<Anchor point="BOTTOM" />
+					
+					<Controls>
+						<Backdrop name="$(parent)BG" inherits="ZO_ThinBackdrop" />
+					</Controls>
+					
+					<OnMouseDown>
+						GME_Hide()
+					</OnMouseDown>
+	
+				</Button>
+            </Controls>
+        </TopLevelControl>
+    </Controls>
+</GuiXml>
