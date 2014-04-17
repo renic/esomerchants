@@ -34,4 +34,4 @@ Output
 
 After saving, look inside the ~/Documents/Elder Scrolls Online/live/AddOns/SavedVariables folder.  You will find a file named GuildMarketExporter.lua.  This file contains all the exported data from the mod.
 
-Please feel free to upload your exports at http://esomerchants.org/upload/
+Please feel free to upload your exports at http://esomerchants.org/upload/ ... we are currently working on browsing, searching, and analyzing the data for use on the web.
