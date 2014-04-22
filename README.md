@@ -47,3 +47,5 @@ Change Log
 * Added Item Level to Exported Data
 
 * Added Actual Prices Paid on Completed Orders Via Guild History
+ 
+0.2.1 - Re-Added Check to See if Guild Store is Open
