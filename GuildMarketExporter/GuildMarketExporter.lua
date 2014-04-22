@@ -13,9 +13,9 @@
 #    Mitazaki - Author of Saved Variables (example addon)
 #  ... to the denizens of #esouidev on freenode for putting up with my
 #      questions.
-#  ... and last, but not least, to early adopters and those who helped test.
+#  ... and last, but not least, to early adopters and those who helped test
 #
-#  version 0.2
+#  version 0.2.1 - Bug Fixes and New Features
 #
 ###########################################################################]]--
 
@@ -82,7 +82,13 @@ function GME_Start()
 		if init == true then
 			GME_Next_Guild(0)
 		else
-			GMEGuildStatus:SetText("Guild Market Exporter not yet full initialized - wait a few seconds and try again.")
+			if GetNumTradingHouseGuilds() > 0 then
+				GMEGuildStatus:SetText("Guild Market Exporter not yet full initialized - wait a few seconds and try again.")
+			else
+				GMEGuildStatus:SetText("You must have a guild store open before running /gme.")
+				GMECloseButton:SetText("Reload UI")
+				GME_Close_Button_Show()
+			end
 		end
 	else
 		GMEGuildStatus:SetText("Only one scan may be run at a time.")
