@@ -44,3 +44,4 @@ https://github.com/renic/esomerchants
 * Fixed bug where Wrong Guild was Associated to Orders
 * Added Item Level to Exported Data
 * Added Actual Prices Paid on Completed Orders Via Guild History
+0.2.1 - Re-Added Check to See if Guild Store is Open
