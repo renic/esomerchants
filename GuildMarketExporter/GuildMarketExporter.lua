@@ -15,7 +15,7 @@
 #      questions.
 #  ... and last, but not least, to early adopters and those who helped test
 #
-#  version 0.2.1 - Bug Fixes and New Features
+#  version 0.2.3 - Bug Fix
 #
 ###########################################################################]]--
 
@@ -41,7 +41,9 @@ function GME_On_AddOn_Loaded(eventCode, addOnName) -- initialize the saved varia
 	end
 end
 
-
+function GME_Reset_Init()
+	init = false
+end
 function GME_Init() -- GME_Init sets up the status variables, and begins the search process
 	if init == false then
 		for i = 1, 5 do -- reset the queue (5 guild max)
@@ -122,7 +124,10 @@ function GME_Next_Guild(last_guild)
 		if current_guild == 6 then
 			-- do history work
 			GMEGuildStatus:SetText("Saving Order History")
-			GMEPageStatus:SetText("Examing " .. status[i]['guild_name'])
+			-- account for unexpected nil
+			if (status[i]['guild_name'] ~= nil) then
+				GMEPageStatus:SetText("Examing " .. status[i]['guild_name'])
+			end
 			for i = 1, 5 do
 				local event_count = GetNumGuildEvents(i,GUILD_HISTORY_SALES)
 				for j = 0, event_count do
@@ -216,7 +221,8 @@ end
 EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_TRADING_HOUSE_AWAITING_RESPONSE, GME_Update_EVENT_TRADING_HOUSE_AWAITING_RESPONSE)
 EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_TRADING_HOUSE_SEARCH_RESULTS_RECEIVED, GME_Receive_Results)
 EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_ADD_ON_LOADED, GME_On_AddOn_Loaded)
-EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_TRADING_HOUSE_STATUS_RECEIVED, GME_Init)
+EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_OPEN_TRADING_HOUSE, GME_Init)
+EVENT_MANAGER:RegisterForEvent("GuildMarketExporter", EVENT_CLOSE_TRADING_HOUSE, GME_Reset_Init)
 
 
 SLASH_COMMANDS["/gme"] = GME_Start
