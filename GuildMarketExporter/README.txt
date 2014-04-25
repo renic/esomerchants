@@ -45,3 +45,5 @@ https://github.com/renic/esomerchants
 * Added Item Level to Exported Data
 * Added Actual Prices Paid on Completed Orders Via Guild History
 0.2.1 - Re-Added Check to See if Guild Store is Open
+0.2.2 - Added extra check to prevent UI error when not all guild slots are filled.
+0.2.3 - Now reinitializes itself every time the guild store is opened to stomp a bug that prevented it from moving to the next guild when the number of guilds changes after intial loading of the addon.
